@@ -1,0 +1,38 @@
+<!--answer.wxml-->
+<view class="container">
+    <view class="question" bindtap="toQuestion">
+        <text class="question-title">{{questionTitle}}</text>
+    </view>
+    <view class="answerer-wrp">
+        <view class="bg-half"></view>
+        <view class="answerer flex-wrp">
+            <view class="avatar flex-item">
+                <image src="{{avatar}}"></image>
+            </view>
+            <view class="answerer-info flex-item">
+                <text class="answerer-name">{{name}}</text>
+                <text class="answerer-des">{{selfIntro}}</text>
+            </view>
+            <view class="follow flex-item" display='{{followDisplay}}' data-user-id="{{user}}" data-follow-user-id="{{userId}}" data-action-type="{{followedStatus}}" bindtap='followIt'>
+                <text display='{{followDisplay}}'>{{followedText}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="answer-content">
+        <text>
+        {{content}}
+        </text>
+    </view>
+
+    <view class="answer-footer flex-wrp">
+        <view class="operation-wrp flex-item">
+            <view class="operation flex-wrp flex-tab">
+                <view class="operation-btn flex-item" data-user-id="{{user}}" data-answer-id="{{answerId}}" bindtap='toComment'>
+                    <image src="../../images/comment.png"></image>
+                    <text>{{commentNum}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

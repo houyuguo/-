@@ -1,0 +1,82 @@
+<!--question.wxml-->
+<view class="container">
+    <view class="question-wrp">
+        <view class="question-item">
+            <!-- 问题标签，我们的数据库里没有这个字段 -->
+            <!-- <view class="que-tag">
+                <text class="tag">问题标签1</text>
+                <text class="tag">问题标签2</text>
+                <text class="tag">问题标签3</text>
+            </view> -->
+            <view class="que-title">
+              {{question.title}}
+            </view>
+            <view class="que-content">
+              {{question.content}}
+            </view>
+            <!-- 这里是浏览量、评论数和关注 -->
+            <!-- <view class="que-follow">
+                <view class="left">
+                    <view class="watch">
+                        <image src="../../images/eye.png"></image>
+                        <text>3316</text>
+                    </view>
+                    <view class="comment">
+                        <image src="../../images/comment2.png"></image>
+                        <text>27</text>
+                    </view>
+                </view>
+                <view class="right">
+                    关注
+                </view>
+            </view> -->
+        </view>
+        <!-- 这里是邀请回答和写回答，还没实现这些功能 -->
+        <!-- <view class="que-operate flex-wrp">
+            <view class="invite flex-item">
+                <image src="../../images/invite.png"></image>
+                <text>邀请回答</text>
+            </view>
+            <view class="write flex-item">
+                <image src="../../images/write.png"></image>
+                <text>写回答</text>
+            </view>
+        </view> -->
+    </view>
+    <view class="answer-feed">
+      <block wx:for="{{qanswers}}"  wx:for-item="item">
+        <view data-aid='{{item.id}}' bindtap="bindItemTap" class="feed-item">
+            <view class="feed-source">
+                <a class="" bindTap="">
+                    <view class="avatar">
+                        <image src="../../images/icon1.jpeg"></image>
+                    </view>
+                    <text>{{item.nickname}}</text>
+                </a>
+            </view>
+            <view class="feed-content">
+                <view class="answer-body">
+                    <view>
+                        <text class="answer-txt"> {{item.content}}  </text>
+                    </view>
+                    <view class="answer-actions">
+                        <view class="like dot">
+                            <a>3.9K 赞同 </a>
+                        </view>
+                        <view class="comments dot">
+                            <a>254 评论 </a>
+                        </view>
+                        <view class="time">
+                            <a>2 个月前</a>
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+        </view>
+      </block>
+    </view>
+
+    <view ></view>
+</view>
+

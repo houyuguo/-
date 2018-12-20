@@ -1,0 +1,76 @@
+
+<view class="top-tab flex-wrp flex-tab " >
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="container discovery withtab" bindscrolltoupper="upper" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
+    <block wx:for="{{recommend}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-content">
+          <view class="question" data-qid="{{item.id}}" bindtap="bindQueTap">
+            <a class="question-link">
+              <text>{{item.title}}</text>
+            </a>
+          </view>
+          <view class="answer-body">
+            <view class="answer-actions">
+              <view class="">
+                <a> </a>
+              </view>            
+              <view style='float:right'>
+                <a>创建时间 {{item.created_on}}  </a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="ctnt3 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <swiper class="activity" indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="155"/>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-source">
+          <a class="">
+            <view class="avatar">
+              <image src="{{(item.avatar == null || item.avatar == '' )? '/images/icon1.jpeg':item.avatar}}"></image>
+            </view>
+            <text>{{item.nickname}}回答了</text>
+          </a>
+        </view>
+        <view class="feed-content">
+          <view class="question" data-qid="{{item.question_id}}" bindtap="bindQueTap">
+            <a class="question-link">
+              <text>{{item.question_title}}</text>
+            </a>
+          </view>
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt" data-aid="{{item.id}}"  bindtap="bindItemTap">{{item.content}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like dot">
+                <a>{{item.answer_count}} 回答数 </a>
+              </view>
+              <view  style='float:right'>
+                <a>回答时间 {{item.updated_on}}  </a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

@@ -1,0 +1,23 @@
+/* pages/putQuestion/put_question.wxss */
+.inputclass{
+  border: 1px solid #d0d0d0;  
+  border-radius: 10rpx;  
+  /* width: 90%; */
+  margin: 20rpx;
+}
+
+.inputclass2{
+  border: 1px solid #d0d0d0;  
+  border-radius: 10rpx;  
+  height: 300rpx;
+  /* width: 90%; */
+  margin: 20rpx;
+}
+
+.btn {
+  width: 95%;
+  margin-top: 20rpx;
+  background-color: purple;
+  color: white;
+  border-radius: 10rpx;
+}

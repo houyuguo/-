@@ -1,0 +1,16 @@
+<!--pages/more/following/following.wxml-->
+ <view wx:for="{{myFollowings}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" class="my">
+    <view class="answerer flex-wrp">
+        <view class="avatar flex-item">
+            <image wx:if="{{item.avatar==null}}" src="../../../images/icon1.jpeg"></image>
+            <image wx:else src="{{item.avatar}}"></image>
+        </view>
+        <view class="answerer-info flex-item">
+            <text class="answerer-name">{{item.nickname}}</text>
+            <text class="answerer-des">{{item.self_intro}}</text>
+        </view>
+        <view class="follow flex-item" data-user-id="{{userId}}" data-follow-user-id="{{item.id}}" bindtap='unfollow'>
+            <text>取消关注</text>
+        </view>
+    </view>
+  </view>

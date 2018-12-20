@@ -1,0 +1,42 @@
+
+<view class="container more">
+  <view class="user flex-wrp">
+    <view class="userinfo-avatar flex-item">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="user-info flex-item">
+      <view class='userinfo-nickname'>
+        <open-data type="userNickName"></open-data>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="my">
+    <view class="my-item flex-wrp" bindtap='following'>
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/eye.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的关注</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp" bindtap='answered'>
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/draft.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的回答</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp" bindtap='question'>
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/recent.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的提问</text>
+      </view>
+    </view>
+  </view>
+</view>
+<button class='btn' open-type='getUserInfo' bindgetuserinfo='onGotUserInfo'>授权登陆</button>

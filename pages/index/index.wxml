@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <!-- <view class="search flex-wrp">
+      <view class="search-left flex-item">
+          <image src="../../images/search.png"></image>
+          <input placeholder="搜索功能ToDo" placeholder-class="search-placeholder"/>
+      </view>
+      <view class="search-right flex-item" bindtap="search">
+          <image src="../../images/lighting.png"></image>
+      </view>
+  </view> -->
+
+    <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feed-item">
+            <!-- <view class="feed-source">
+                <a class="">
+                    <view class="avatar">
+                        <image src="{{item.feed_source_img}}"></image>
+                    </view>
+                    <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
+                </a>
+                <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
+            </view> -->
+            <view class="feed-content">
+                <view class="question" data-qid="{{item.id}}" bindtap="bindQueTap">
+                    <a class="question-link">
+                        <text>{{item.title}}</text>
+                    </a>
+                </view>
+                <view class="answer-body">
+                    <view data-aid="{{item.answer_id}}" data-uid="{{item.answer_user_id}}" bindtap="bindItemTap">
+                        <text class="answer-txt answer_brief" >{{item.nickname}} : {{item.answer_content}}</text>
+                    </view>
+                    <view class="answer-actions">
+                        <!-- <view class="like dot">
+                            <a>{{item.good_num}} 赞同 </a>
+                        </view> -->
+                        <!-- <view class="comments dot">
+                            <a>{{item.answer_count}} 回答数 </a>
+                        </view> -->
+                        <!-- <view class="follow-it">
+                            <a>关注问题</a>
+                        </view> -->
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+<view
+bindtap='putQuestion'>
+<image class='put-question' src='../../images/putQuestion.png'></image>
+</view>
+

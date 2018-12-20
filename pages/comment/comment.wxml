@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <block wx:for="{{data}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feed-item">
+            <view class="feed-source">
+                <a class="">
+                    <!-- <view class="avatar">
+                        <image src="../../images/icon1.jpeg"></image>
+                    </view> -->
+                    <text>{{item.nickname}}</text>
+                </a>
+            </view>
+            <view class="feed-content">
+                <view class="answer-body">
+                    <view>
+                        <text class="answer-txt">
+                        {{item.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="sendmessage">
+      <input type="emoji" bindinput="bindChange" confirm-type="done" value='{{news_input_val}}' placeholder="" />
+      <button data-user-id='{{userId}}' data-answer-id='{{answerId}}' catchtap="addComment">发送</button>
+      <input style='display:none' type="" bindinput="bindChange" confirm-type="done" placeholder="" />
+    </view>
+
+</scroll-view>
+
